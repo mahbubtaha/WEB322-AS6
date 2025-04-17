@@ -1,0 +1,55 @@
+<form
+  class="main-section-form"
+  method="post"
+  action="/items/add"
+  enctype="multipart/form-data"
+>
+  <h2>Add Item</h2>
+  {{! <hr /> }}
+  <fieldset>
+    <legend>Feature Image</legend>
+    <input
+      class="form-img-btn"
+      id="featureImage"
+      name="featureImage"
+      type="file"
+    />
+  </fieldset>
+  <fieldset>
+    <legend>Post Content</legend>
+    <div class="column">
+      <label for="title">Item Name:</label>
+      <input class="form-control" id="title" name="title" type="text" />
+    </div>
+    <div class="column">
+      <label for="price">Price:</label>
+      <input class="form-control" id="price" name="price" type="text" />
+    </div>
+    <div class="column">
+      <label for="body">Description:</label>
+      <textarea class="form-control" id="body" name="body" rows="5"></textarea>
+    </div>
+
+    <div class="column">
+      <label for="category">Category:</label>
+      {{#if categories}}
+      <select class="form-control" name="category" id="category">
+        <option value="">Select Category</option>
+        {{#each categories}}
+        <option value="{{id}}">{{category}}</option>
+        {{/each}}
+      </select>
+      {{else}}
+      <div>No Categories</div>
+      {{/if}}
+    </div>
+    <div class="column">
+      <label for="category">Visibility:</label>
+      <div class="checkbox">
+        <input type="checkbox" name="published" id="published" />
+        <p>Published</p>
+      </div>
+    </div>
+  </fieldset>
+  <input class="form-btn" type="submit" value="Add Post" />
+</form>

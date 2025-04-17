@@ -1,0 +1,40 @@
+<section class="main-section-form">
+  <h2>Register</h2>
+  
+  {{#if errorMessage}}
+  <div class="alert alert-danger">
+    <strong>Error:</strong> {{errorMessage}}
+  </div>
+  {{/if}}
+  
+  {{#if successMessage}}
+  <div class="alert alert-success">
+    <strong>Success:</strong> {{successMessage}}
+  </div>
+  <a class="btn btn-success pull-right" href="/login">&nbsp;&nbsp;&nbsp;Proceed to Log in&nbsp;&nbsp;&nbsp;</a>
+  <br /><br /><br />
+  {{else}}
+  <form method="post" action="/register">
+    <fieldset>
+      <legend>Registration Information</legend>
+      <div class="column">
+        <label for="userName">User Name:</label>
+        <input class="form-control" id="userName" name="userName" type="text" value="{{userName}}" placeholder="User Name" required autofocus />
+      </div>
+      <div class="column">
+        <label for="password">Password:</label>
+        <input class="form-control" id="password" name="password" type="password" placeholder="Password" required />
+      </div>
+      <div class="column">
+        <label for="password2">Confirm Password:</label>
+        <input class="form-control" id="password2" name="password2" type="password" placeholder="Confirm Password" required />
+      </div>
+      <div class="column">
+        <label for="email">Email Address:</label>
+        <input class="form-control" id="email" name="email" type="email" placeholder="Email Address" required />
+      </div>
+    </fieldset>
+    <input class="form-btn" type="submit" value="Register" />
+  </form>
+  {{/if}}
+</section>

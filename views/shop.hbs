@@ -1,0 +1,72 @@
+<section class="main-section">
+  <div class="row">
+    <!-- Main content section -->
+    <section class="main col-md-9">
+      {{#if data.item}}
+      <item>
+        <div class="row">
+          <!-- Left side - Feature Image and Title -->
+          <div class="col-4">
+            <h2>{{data.item.title}}</h2>
+            <img
+              src="{{data.item.featureImage}}"
+              alt="Feature Image"
+              style="width:100%;"
+            />
+          </div>
+
+          <!-- Right side - Post Details (Price, Category, Body, Date) -->
+          <div class="col-8">
+            <br />
+            <br />
+            <div class="row">
+              <div class="col-12">
+                {{{safeHTML data.item.body}}}
+                <br /><br />
+                <strong>Price:</strong> ${{data.item.price}}<br />
+                <strong>Category:</strong> {{data.item.category}}<br />
+                <strong>Last Updated:</strong> {{data.item.postDate}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </item>
+      {{else}}
+      <!-- If no post is available, show message -->
+      <div class="col-md-12 text-center">
+        <h2>{{data.message}}</h2>
+        <p>Please try another Post / Category</p>
+      </div>
+      {{/if}}
+    </section>
+
+    <!-- Sidebar section for items and categories -->
+    <aside class="col-md-3">
+      <!-- Display Items if available -->
+      {{#if data.items}}
+      <br /><br />
+      <h4>Items</h4>
+      <ul class="list-group">
+        {{#each data.items}}
+        <a
+          href="/shop/{{id}}?category={{../viewingCategory}}"
+          class="list-group-item"
+        >
+          {{title}}
+        </a>
+        {{/each}}
+      </ul>
+      {{/if}}
+
+      <!-- Display Categories if available -->
+      {{#if data.categories}}
+      <h4>Categories</h4>
+      <ul class="list-group">
+        {{#each data.categories}}
+        <a href="/shop?category={{id}}" class="list-group-item">{{category}}</a>
+        {{/each}}
+      </ul>
+      {{/if}}
+    </aside>
+  </div>
+</section>

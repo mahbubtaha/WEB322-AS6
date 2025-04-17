@@ -1,0 +1,691 @@
+/*------------------------------------------ FONTS ------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* font-family: 'Poppins', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+// font-family: "Inter", sans-serif;
+
+/*------------------------------------------ VARIABLES ------------------------------------------*/
+$nav-bg-color: hsl(220, 50%, 10%);
+$nav-bg-hover-color: hwb(219 34% 28%);
+$nav-bg-active-color: hsl(219 17% 57%);
+
+$nav-bg-hover-hue: 220;
+$nav-bg-hover-sat: 50%;
+$nav-bg-hover-bri: 20%;
+
+$color-accent: hsl(220, 50%, 95%);
+
+$nav-height: 50px;
+$nav-mobile-height: 80px;
+
+$main-container-padding-top: calc($nav-height);
+
+$aside-width: 15%;
+
+$mobile-main-padding-x: 8%;
+$mobile-main-padding-y: 5vh;
+
+$nav-text-color: hsl(0, 0%, 90%);
+
+$border-dashed: 1px dashed $nav-bg-color;
+$border-solid: 1px solid $nav-bg-color;
+
+$text-logo-size: 1.2rem;
+$text-heading-size: 2.5rem;
+$text-body-size: 1rem;
+
+$link-transition: 0.2s ease;
+$link-transition2: 0.4s ease-in-out;
+$link-pulse: pulse-text-glow 0.4s infinite alternate,
+  pulse-nav-bg 0.4s infinite alternate;
+$shad-top: 2px;
+$shad-bottom: -2px;
+$shad-blur: 2px;
+
+/*------------------------------------------ ANIMATIONS ------------------------------------------*/
+@keyframes pulse-logo-glow {
+  0% {
+    color: $nav-text-color;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  }
+}
+@keyframes pulse-text-glow {
+  0% {
+    color: $nav-text-color;
+    text-shadow: 0 0 0px hsla(180, 0%, 100%, 0);
+  }
+  100% {
+    color: white;
+    text-shadow: 0 0 10px hsla(180, 0%, 100%, 1);
+  }
+}
+@keyframes pulse-nav-bg {
+  0% {
+    background: linear-gradient(
+      to bottom,
+      hsla($nav-bg-hover-hue, $nav-bg-hover-sat, $nav-bg-hover-bri, 0),
+      transparent
+    );
+  }
+  10% {
+    background: linear-gradient(
+      to bottom,
+      hsla($nav-bg-hover-hue, $nav-bg-hover-sat, $nav-bg-hover-bri, 0.1),
+      transparent
+    );
+  }
+  20% {
+    background: linear-gradient(
+      to bottom,
+      hsla($nav-bg-hover-hue, $nav-bg-hover-sat, $nav-bg-hover-bri, 0.2),
+      transparent
+    );
+  }
+  30% {
+    background: linear-gradient(
+      to bottom,
+      hsla($nav-bg-hover-hue, $nav-bg-hover-sat, $nav-bg-hover-bri, 0.3),
+      transparent
+    );
+  }
+  40% {
+    background: linear-gradient(
+      to bottom,
+      hsla($nav-bg-hover-hue, $nav-bg-hover-sat, $nav-bg-hover-bri, 0.4),
+      transparent
+    );
+  }
+  50% {
+    background: linear-gradient(
+      to bottom,
+      hsla($nav-bg-hover-hue, $nav-bg-hover-sat, $nav-bg-hover-bri, 0.5),
+      transparent
+    );
+  }
+  60% {
+    background: linear-gradient(
+      to bottom,
+      hsla($nav-bg-hover-hue, $nav-bg-hover-sat, $nav-bg-hover-bri, 0.6),
+      transparent
+    );
+  }
+  70% {
+    background: linear-gradient(
+      to bottom,
+      hsla($nav-bg-hover-hue, $nav-bg-hover-sat, $nav-bg-hover-bri, 0.7),
+      transparent
+    );
+  }
+  80% {
+    background: linear-gradient(
+      to bottom,
+      hsla($nav-bg-hover-hue, $nav-bg-hover-sat, $nav-bg-hover-bri, 0.8),
+      transparent
+    );
+  }
+  90% {
+    background: linear-gradient(
+      to bottom,
+      hsla($nav-bg-hover-hue, $nav-bg-hover-sat, $nav-bg-hover-bri, 0.9),
+      transparent
+    );
+  }
+  100% {
+    background: linear-gradient(
+      to bottom,
+      hsla($nav-bg-hover-hue, $nav-bg-hover-sat, $nav-bg-hover-bri, 1),
+      transparent
+    );
+  }
+}
+@keyframes pulse-footer-link {
+  0% {
+    color: hsl(0, 0%, 70%);
+  }
+  100% {
+    color: white;
+  }
+}
+
+@keyframes sos {
+  0% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  2% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  5% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  7% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  10% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  12% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  15% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  17% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  21% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  36% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  38% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  39% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  54% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  56% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  57% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  72% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  74% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  76% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  78% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  81% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  83% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  86% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  88% {
+    color: #e6e6e6;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  91% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+  100% {
+    color: #8a8a8a;
+    text-shadow: 0 0 1px #b8b8b8;
+  }
+}
+
+/*------------------------------------------ MIXINS ------------------------------------------*/
+@mixin flex($justify: flex-start, $align: flex-start, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+@mixin text-logo() {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+@mixin text-nav-link($size: 1rem) {
+  font-family: "Poppins", sans-serif;
+  font-size: $size;
+  font-weight: 300;
+}
+@mixin text-heading($size: 2.5rem, $weight: 900) {
+  font-family: "Poppins", sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  text-transform: uppercase;
+}
+@mixin text-body($size: 1rem, $weight: 400) {
+  font-family: "Inter", sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+/*------------------------------------------ STYLES ------------------------------------------*/
+/**************Reset**************/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+hr {
+  margin: 0.5vh 0 1vh;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $nav-text-color;
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.2);
+}
+
+html {
+  font-size: 15px;
+}
+
+/**************Custom**************/
+body {
+  @include flex(stretch, flex-start, column);
+  @include text-body(15px, 400);
+  width: 100%;
+  min-width: 260px;
+  min-height: 100vh;
+  background: white;
+
+  .nav-container {
+    @include flex(space-between, center, row);
+    width: 100%;
+    height: $nav-height;
+    padding: 0 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: $nav-text-color;
+    background: $nav-bg-color;
+    border-bottom: 1px dashed white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: 0.2s ease;
+    z-index: 9;
+
+    .nav-logo {
+      @include flex(center, center, column);
+      @include text-logo();
+      padding: 0 2em;
+      height: 100%;
+      line-height: 1;
+      span {
+        font-weight: 200;
+      }
+      p {
+        margin: 0;
+      }
+      transition: $link-transition;
+    }
+
+    .nav-logo:hover,
+    .active {
+      animation: pulse-logo-glow 1s infinite alternate;
+    }
+
+    .nav-menu-wrapper {
+      @include flex(space-between, center, row);
+      width: 100%;
+      max-width: 700px;
+      min-width: 200px;
+      margin: 0;
+      list-style: none;
+
+      .nav-menu-item {
+        @include flex(center, center, row);
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        transition: $link-transition;
+
+        .nav-menu-item-link {
+          @include flex(center, center, row);
+          @include text-nav-link();
+          width: 100%;
+          height: 100%;
+          padding: 1.618vh 0;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+      }
+      .nav-menu-item:hover {
+        background: $nav-bg-hover-color;
+        animation: $link-pulse;
+      }
+      .active {
+        animation: pulse-text-glow 1s infinite alternate;
+      }
+    }
+
+    .nav-menu-wrapper:hover .active:hover {
+      animation: $link-pulse;
+    }
+  }
+
+  .main-container {
+    @include flex(flex-start, stretch, row);
+    width: 100%;
+    padding-top: calc($nav-height);
+    flex: 1;
+    h2 {
+      @include text-heading();
+      margin-bottom: 1.5vh;
+      color: black;
+      line-height: 1;
+    }
+    p {
+      @include text-body();
+      margin-bottom: 2vh;
+      line-height: 1.5;
+      color: #242424;
+    }
+
+    .main-aside {
+      @include flex(flex-start, center, column);
+      width: $aside-width;
+      min-width: 200px;
+      padding: $main-container-padding-top 2%;
+      text-align: center;
+      background: $color-accent;
+      border-right: 1px solid hsl(220, 10%, 85%);
+      // box-shadow: inset -3px 0 6px hsla(0, 0%, 0%, 0.1),
+      //   inset 3px 0 6px hsla(0, 0%, 0%, 0.1),
+      //   inset 0 -3px 6px hsla(0, 0%, 0%, 0.1);
+
+      h2 {
+        @include text-heading(2rem);
+        margin-bottom: 1vh;
+        color: black;
+        line-height: 1;
+      }
+    }
+    .main-section {
+      @include flex(flex-start, flex-start, column);
+      width: calc(100% - #{$aside-width});
+      padding: $main-container-padding-top 4%;
+      text-align: justify;
+    }
+    .main-section-error {
+      @include flex(flex-start, flex-start, column);
+      width: calc(100% - #{$aside-width});
+      padding: $main-container-padding-top 4%;
+      text-align: left;
+
+      p {
+        @include flex(flex-start, center, row);
+        @include text-body(1.5rem, 400);
+        color: black;
+      }
+    }
+
+    .main-section-form {
+      @include flex(space-between, flex-start, column);
+      width: calc(100% - #{$aside-width});
+      padding: $main-container-padding-top 4%;
+      text-align: left;
+
+      input[type="file"] {
+        @include text-body(0.8rem, 400);
+      }
+
+      input::file-selector-button,
+      .form-btn {
+        @include text-body(1rem, 800);
+        margin-right: 1em;
+        padding: 0.5em 1.5em;
+        border: none;
+        border-radius: 5px;
+        background: $nav-bg-color;
+        color: $nav-text-color;
+        box-shadow: inset $shad-top $shad-top $shad-blur hsla(0, 0%, 100%, 0.2),
+          inset $shad-bottom $shad-bottom $shad-blur hsla(0, 0%, 0%, 0.6);
+        cursor: pointer;
+        transition: 0.05s ease;
+      }
+      .form-btn {
+        padding: 1em 3em;
+      }
+
+      input:hover::file-selector-button,
+      .form-btn:hover {
+        color: white;
+        background: $nav-bg-hover-color;
+      }
+
+      input:active::file-selector-button,
+      .form-btn:active {
+        color: white;
+        background: $nav-bg-active-color;
+        box-shadow: inset $shad-top $shad-top $shad-top hsla(0, 0%, 0%, 0.6),
+          inset $shad-bottom $shad-bottom $shad-top hsla(0, 0%, 100%, 0.2);
+        transition: none;
+      }
+
+      fieldset {
+        @include flex(flex-start, flex-start, column);
+        width: 100%;
+        margin-bottom: 4vh;
+        padding: 2vh 2%;
+        border: $border-dashed;
+        border-radius: 5px;
+        background: $color-accent;
+        row-gap: 3vh;
+        box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.2);
+
+        legend {
+          @include text-heading(1.1rem, 700);
+          text-transform: uppercase;
+          color: #242424;
+          padding: 0 0.1em;
+        }
+
+        .column {
+          @include flex(flex-start, flex-start, column);
+        }
+        .row {
+          @include flex(flex-start, center, row);
+        }
+        .column,
+        .row {
+          width: 100%;
+
+          label {
+            @include text-body(0.9rem, 600);
+            margin-bottom: 0.6vh;
+            text-transform: capitalize;
+            color: #242424;
+          }
+
+          input,
+          textarea {
+            @include text-body(0.8rem, 400);
+            width: 100%;
+            padding: 1vh 1%;
+            border: $border-dashed;
+            border-radius: 5px;
+            background: white;
+            color: black;
+            box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.2);
+            transition: 0.2s ease;
+          }
+
+          input:focus,
+          textarea:focus {
+            border: $border-solid;
+          }
+
+          select {
+            width: 100%;
+            padding: 1vh 1%;
+            border: $border-dashed;
+            border-radius: 5px;
+            background: white;
+            color: black;
+            transition: 0.2s ease;
+          }
+
+          .checkbox {
+            @include flex(center, center, row);
+            margin-top: 0.5vh;
+            color: #242424;
+            column-gap: 0.3em;
+
+            label {
+              margin-right: 1em;
+            }
+            input {
+              @include flex(center, center, row);
+              cursor: pointer;
+            }
+
+            p {
+              @include text-body(0.8rem, 400);
+              margin: 0;
+            }
+          } // .checkbox
+        } // .column, .row
+      } // fieldset
+    } // .main-section-form
+  } // .main-container
+
+  footer {
+    @include flex(center, center, column);
+    width: 100%;
+    padding: 1vh 5%;
+    color: $nav-text-color;
+    background: $nav-bg-color;
+    row-gap: 1vh;
+
+    .footer-icon-wrapper {
+      @include flex(center, center, row);
+      width: 100%;
+      column-gap: 1em;
+
+      a {
+        @include flex(center, center, row);
+        width: 1.25em;
+        aspect-ratio: 1;
+        cursor: pointer;
+
+        svg {
+          width: 100%;
+          cursor: pointer;
+          fill: hsl(0, 0%, 70%);
+          transition: $link-transition;
+        }
+        svg:hover {
+          fill: white;
+          transform: translateY(-2px);
+        }
+      }
+      a:hover {
+        svg {
+          fill: white;
+          transform: translateY(-2px);
+        }
+      }
+    }
+
+    p {
+      @include text-body(11px, 300);
+      color: hsl(0, 0%, 70%);
+
+      a {
+        color: hsl(0, 0%, 70%);
+        transition: $link-transition;
+        animation: sos 7s infinite;
+      }
+      a:hover {
+        color: white;
+      }
+    }
+  }
+} // body
+
+/*------------------------------------------ RESPONSIVE ------------------------------------------*/
+@media screen and (max-width: 700px) {
+  .nav-container {
+    height: $nav-mobile-height;
+    padding: 0 $mobile-main-padding-x;
+    .nav-logo {
+      padding: 0;
+    }
+    .nav-menu-wrapper {
+      display: none;
+    }
+  }
+  .main-container {
+    @include flex(flex-start, center, column);
+    text-align: center;
+    h2 {
+      @include text-heading();
+    }
+    .main-aside {
+      width: 100%;
+      padding: $mobile-main-padding-y $mobile-main-padding-x;
+      min-width: initial;
+      min-height: initial;
+      height: auto;
+      text-align: center;
+      border: none;
+      border-bottom: 1px dashed hsl(220, 10%, 85%);
+      // box-shadow: inset 0 -3px 6px hsla(0, 0%, 0%, 0.1);
+
+      h2 {
+        margin: 0;
+      }
+      p {
+        margin: 0;
+      }
+    }
+    .main-section {
+      @include flex(flex-start, center, column);
+      width: 100%;
+      padding: $mobile-main-padding-y $mobile-main-padding-x;
+      text-align: justify;
+      text-align-last: center;
+    }
+
+    .main-section-form {
+      @include flex(space-between, center, column);
+      padding: auto 0;
+
+      fieldset {
+        padding: 2vh 5%;
+      }
+    }
+  }
+}
